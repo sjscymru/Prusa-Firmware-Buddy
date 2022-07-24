@@ -22,6 +22,7 @@ enum class filament_t {
     NONE = 0,
     PLA,
     PETG,
+    PA6_CF,
     ASA,
     PC,
     PVB,

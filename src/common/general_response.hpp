@@ -30,6 +30,7 @@ enum class Response : uint8_t {
     Pause,
     PC,
     PETG,
+    PA6_CF,
     PLA,
     PP,
     Purge_more,

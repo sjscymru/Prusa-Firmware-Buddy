@@ -16,27 +16,29 @@ const char *get_selected_filament_name() {
 
 // clang-format off
 // to keep the texts aligned for easier checking of their alignment on the LCD
-static constexpr const char *pla_str =   "PLA      215/ 60";
-static constexpr const char *pet_g_str = "PETG     230/ 85";
-static constexpr const char *asa_str =   "ASA      260/100";
-static constexpr const char *pc_str =    "PC       275/100";
-static constexpr const char *pvb_str =   "PVB      215/ 75";
-static constexpr const char *abs_str =   "ABS      255/100";
-static constexpr const char *hips_str =  "HIPS     220/100";
-static constexpr const char *pp_str =    "PP       240/100";
-static constexpr const char *flex_str =  "FLEX     240/ 50";
+static constexpr const char *pla_str =    "PLA      215/ 60";
+static constexpr const char *pet_g_str =  "PETG     230/ 85";
+static constexpr const char *pa6_cf_str = "PA6-CF   290/ 35";
+static constexpr const char *asa_str =    "ASA      260/100";
+static constexpr const char *pc_str =     "PC       275/100";
+static constexpr const char *pvb_str =    "PVB      215/ 75";
+static constexpr const char *abs_str =    "ABS      255/100";
+static constexpr const char *hips_str =   "HIPS     220/100";
+static constexpr const char *pp_str =     "PP       240/100";
+static constexpr const char *flex_str =   "FLEX     240/ 50";
 
 const Filaments::Array filaments = {
-    { "---", BtnResponse::GetText(Response::Cooldown),   0,    0,   0, Response::Cooldown }, // Cooldown sets long text instead short, not a bug
-    { BtnResponse::GetText(Response::PLA), pla_str,     215, 170,  60, Response::PLA },
-    { BtnResponse::GetText(Response::PETG), pet_g_str,  230, 170,  85, Response::PETG },
-    { BtnResponse::GetText(Response::ASA), asa_str,     260, 170, 100, Response::ASA },
-    { BtnResponse::GetText(Response::PC), pc_str,       275, 170, 100, Response::PC },
-    { BtnResponse::GetText(Response::PVB), pvb_str,     215, 170,  75, Response::PVB },
-    { BtnResponse::GetText(Response::ABS), abs_str,     255, 170, 100, Response::ABS },
-    { BtnResponse::GetText(Response::HIPS), hips_str,   220, 170, 100, Response::HIPS },
-    { BtnResponse::GetText(Response::PP), pp_str,       240, 170, 100, Response::PP },
-    { BtnResponse::GetText(Response::FLEX), flex_str,   240, 170,  50, Response::FLEX },
+    { "---", BtnResponse::GetText(Response::Cooldown),     0,    0,   0, Response::Cooldown }, // Cooldown sets long text instead short, not a bug
+    { BtnResponse::GetText(Response::PLA), pla_str,        215, 170,  60, Response::PLA },
+    { BtnResponse::GetText(Response::PETG), pet_g_str,     230, 170,  85, Response::PETG },
+    { BtnResponse::GetText(Response::PA6_CF), pa6_cf_str,  290, 170,  35, Response::PA6_CF },
+    { BtnResponse::GetText(Response::ASA), asa_str,        260, 170, 100, Response::ASA },
+    { BtnResponse::GetText(Response::PC), pc_str,          275, 170, 100, Response::PC },
+    { BtnResponse::GetText(Response::PVB), pvb_str,        215, 170,  75, Response::PVB },
+    { BtnResponse::GetText(Response::ABS), abs_str,        255, 170, 100, Response::ABS },
+    { BtnResponse::GetText(Response::HIPS), hips_str,      220, 170, 100, Response::HIPS },
+    { BtnResponse::GetText(Response::PP), pp_str,          240, 170, 100, Response::PP },
+    { BtnResponse::GetText(Response::FLEX), flex_str,      240, 170,  50, Response::FLEX },
 };
 // clang-format on
 
