@@ -1,1 +1,1 @@
-python utils/build.py --preset mini --build-type release --generate-bbf --final
+python utils/build.py --printer mini --build-type release --generate-bbf --final

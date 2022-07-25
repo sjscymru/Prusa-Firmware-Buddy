@@ -1,1 +1,1 @@
-python utils/build.py --preset mini --build-type debug --generate-bbf
+python utils/build.py --printer mini --build-type debug --generate-bbf
