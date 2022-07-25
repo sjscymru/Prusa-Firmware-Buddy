@@ -384,6 +384,8 @@ variant8_t eeprom_get_var(uint8_t id) {
     return var;
 }
 
+float eeprom_get_flt(uint8_t id) { return variant8_get_flt(eeprom_get_var(id)); }
+
 void eeprom_set_var(uint8_t id, variant8_t var) {
     uint16_t addr;
     uint16_t size;
@@ -417,6 +419,8 @@ void eeprom_set_var(uint8_t id, variant8_t var) {
         eeprom_unlock();
     }
 }
+
+void eeprom_set_flt(uint8_t, float flt) { eeprom_set_var(id, variant8_flt(flt)); }
 
 uint8_t eeprom_get_var_count(void) {
     return EEPROM_VARCOUNT;
@@ -877,12 +881,12 @@ extern "C" void set_z_max_pos_mm(float max_pos) {
 
 #if ENABLED(PIDTEMP)
 
-template <enum eevar_id ENUM>
+template <int ENUM>
 float get_pid_noz_value() {
     return eeprom_get_flt(ENUM);
 }
 
-template <enum eevar_id ENUM>
+template <int ENUM>
 void set_pid_noz_value(float value) {
     return eeprom_set_flt(ENUM, value);
 }
