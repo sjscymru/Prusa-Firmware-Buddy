@@ -16,3 +16,4 @@ Makefile
 /doc/html/
 __pycache__
 .benchmarks
+private-key.pem
