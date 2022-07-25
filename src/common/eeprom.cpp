@@ -420,7 +420,7 @@ void eeprom_set_var(uint8_t id, variant8_t var) {
     }
 }
 
-void eeprom_set_flt(uint8_t, float flt) { eeprom_set_var(id, variant8_flt(flt)); }
+void eeprom_set_flt(uint8_t id, float flt) { eeprom_set_var(id, variant8_flt(flt)); }
 
 uint8_t eeprom_get_var_count(void) {
     return EEPROM_VARCOUNT;
