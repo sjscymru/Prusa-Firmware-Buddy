@@ -15,7 +15,7 @@ enum ResourceId : uint8_t {
     IDR_FNT_SPECIAL,
 
     //pngs
-    IDR_PNG_marlin_logo,
+    IDR_PNG_t3s_solutions_logo,
     IDR_PNG_prusa_printer_splash,
     IDR_PNG_prusa_printer_logo,
 
