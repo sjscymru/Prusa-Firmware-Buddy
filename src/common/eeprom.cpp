@@ -741,13 +741,22 @@ void set_pid_noz_value(float value) {
     return eeprom_set_flt(ENUM, value);
 }
 
+#if ENABLED(PIDTEMP)
 extern "C" float get_pid_noz_p_value() { return get_pid_noz_value<EEVAR_PID_NOZ_P>(); }
-extern "C" float get_pid_noz_i_value() { return get_pid_noz_value<EEVAR_PID_NOZ_I>(); }
-extern "C" float get_pid_noz_d_value() { return get_pid_noz_value<EEVAR_PID_NOZ_D>(); }
+extern "C" float get_pid_noz_i_value() { return unscalePID_i(get_pid_noz_value<EEVAR_PID_NOZ_I>()); }
+extern "C" float get_pid_noz_d_value() { return unscalePID_d(get_pid_noz_value<EEVAR_PID_NOZ_D>()); }
 
-extern "C" void set_pid_noz_p_value(float value) { return set_pid_noz_value<EEVAR_PID_NOZ_P>(value); }
-extern "C" void set_pid_noz_i_value(float value) { return set_pid_noz_value<EEVAR_PID_NOZ_I>(value); }
-extern "C" void set_pid_noz_d_value(float value) { return set_pid_noz_value<EEVAR_PID_NOZ_D>(value); }
+extern "C" void set_pid_noz_p_value(float value) { set_pid_noz_value<EEVAR_PID_NOZ_P>(value); }
+extern "C" void set_pid_noz_i_value(float value) { set_pid_noz_value<EEVAR_PID_NOZ_I>(scalePID_i(value)); }
+extern "C" void set_pid_noz_d_value(float value) { set_pid_noz_value<EEVAR_PID_NOZ_D>(scalePID_d(value)); }
+#else
+extern "C" void get_pid_noz_p_value() { log_error(EEPROM, "called %s while PIDTEMP is disabled", __PRETTY_FUNCTION__); }
+extern "C" void get_pid_noz_i_value() { log_error(EEPROM, "called %s while PIDTEMP is disabled", __PRETTY_FUNCTION__); }
+extern "C" void get_pid_noz_d_value() { log_error(EEPROM, "called %s while PIDTEMP is disabled", __PRETTY_FUNCTION__); }
+extern "C" void set_pid_noz_p_value(float value) { log_error(EEPROM, "called %s while PIDTEMP is disabled", __PRETTY_FUNCTION__); }
+extern "C" void set_pid_noz_i_value(float value) { log_error(EEPROM, "called %s while PIDTEMP is disabled", __PRETTY_FUNCTION__); }
+extern "C" void set_pid_noz_d_value(float value) { log_error(EEPROM, "called %s while PIDTEMP is disabled", __PRETTY_FUNCTION__); }
+#endif
 
 
 /*****************************************************************************/

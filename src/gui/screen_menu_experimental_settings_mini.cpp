@@ -27,10 +27,16 @@ class ScreenMenuExperimentalSettings : public Screen {
     struct values_t {
         values_t(ScreenMenuExperimentalSettings &parent)
             : z_len(parent.Item<MI_Z_AXIS_LEN>().GetVal())
-            , steps_per_unit_e(parent.Item<MI_STEPS_PER_UNIT_E>().GetVal() * ((parent.Item<MI_DIRECTION_E>().GetIndex() == 1) ? -1 : 1)) {}
+            , steps_per_unit_e(parent.Item<MI_STEPS_PER_UNIT_E>().GetVal() * ((parent.Item<MI_DIRECTION_E>().GetIndex() == 1) ? -1 : 1))
+            , pid_p(parent.Item<MI_PID_NOZ_P>().GetVal())
+            , pid_i(parent.Item<MI_PID_NOZ_I>().GetVal())
+            , pid_d(parent.Item<MI_PID_NOZ_D>().GetVal()) {}
 
         int32_t z_len;
         int32_t steps_per_unit_e; //has stored both index and polarity
+        float pid_p;
+        float pid_i;
+        float pid_d;
 
         // this is only safe as long as there are no gaps between variabes
         // all variables are 32bit now, so it is safe

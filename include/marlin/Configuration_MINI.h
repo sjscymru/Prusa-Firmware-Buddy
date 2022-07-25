@@ -430,7 +430,7 @@
 
     // Prusa MINI
 #define PHAETUS_DRAGONFLY_HOTEND
-#ifdef PHAETUS_DRAGONFLY_HOTEND    
+#if ENABLED(PHAETUS_DRAGONFLY_HOTEND)
     #define DEFAULT_Kp 14.30
     #define DEFAULT_Ki 0.90
     #define DEFAULT_Kd 57.05   
