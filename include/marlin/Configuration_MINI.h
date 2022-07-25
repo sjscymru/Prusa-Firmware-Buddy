@@ -429,9 +429,17 @@
 // is more than PID_FUNCTIONAL_RANGE then the PID will be shut off and the heater will be set to min/max.
 
     // Prusa MINI
+#define PHAETUS_DRAGONFLY_HOTEND
+#ifdef PHAETUS_DRAGONFLY_HOTEND    
+    #define DEFAULT_Kp 14.30
+    #define DEFAULT_Ki 0.90
+    #define DEFAULT_Kd 57.05   
+#else
+    // default PID tuning values for V6
     #define DEFAULT_Kp 7.00
     #define DEFAULT_Ki 0.50
     #define DEFAULT_Kd 45.00
+#endif
 
     #define STEADY_STATE_HOTEND // Enable support for STEADY_STATE_HOTEND (feed-forward thermal management)
     #define STEADY_STATE_HOTEND_LINEAR_COOLING_TERM 0.422
