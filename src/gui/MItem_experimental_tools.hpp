@@ -17,6 +17,30 @@ enum class ClickCommand : intptr_t { Return,
     Reset_microsteps,
     Reset_currents };
 
+class MI_PID_NOZ_P : public WiSpinFlt {
+    constexpr static const char* const label = "Nozzle PID P value";
+
+public:
+    MI_PID_NOZ_P();
+    void Store();
+};
+
+class MI_PID_NOZ_I : public WiSpinFlt {
+    constexpr static const char* const label = "Nozzle PID I value";
+
+public:
+    MI_PID_NOZ_I();
+    void Store();
+};
+
+class MI_PID_NOZ_D : public WiSpinFlt {
+    constexpr static const char* const label = "Nozzle PID D value";
+
+public:
+    MI_PID_NOZ_D();
+    void Store();
+};
+
 class MI_Z_AXIS_LEN : public WiSpinInt {
     constexpr static const char *const label = "Z-axis length";
 

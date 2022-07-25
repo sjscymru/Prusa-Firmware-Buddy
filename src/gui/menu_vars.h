@@ -57,6 +57,7 @@ struct MenuVars {
     constexpr static std::array<int, MenuVars::RANGE_SZ> microstep_exponential_range = { 1, 256, 2 }; // 2^0 - 2^8 .. 1, 2, 4, .. , 128, 256
     constexpr static std::array<int, MenuVars::RANGE_SZ> axis_rms_currents_range = { 0, 800, 1 };
     constexpr static std::array<int, MenuVars::RANGE_SZ> steps_per_unit_range = { 1, 1000, 1 }; // small range, experimental feature
+    constexpr static std::array<float, MenuVars::RANGE_SZ> pid_param_range = { 0.00f, 100.00f, 0.05f }; // pid parameter tuning range
 
     static const int GetExtrudeMinTemp();
 

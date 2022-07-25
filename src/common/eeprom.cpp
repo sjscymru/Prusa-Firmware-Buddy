@@ -730,6 +730,27 @@ extern "C" void set_z_max_pos_mm(float max_pos) {
 }
 
 /*****************************************************************************/
+// PID_NOZ_PID values
+template <enum eevar_id ENUM>
+float get_pid_noz_value() {
+    return eeprom_get_flt(ENUM);
+}
+
+template <enum eevar_id ENUM>
+void set_pid_noz_value(float value) {
+    return eeprom_set_flt(ENUM, value);
+}
+
+extern "C" float get_pid_noz_p_value() { return get_pid_noz_value<EEVAR_PID_NOZ_P>(); }
+extern "C" float get_pid_noz_i_value() { return get_pid_noz_value<EEVAR_PID_NOZ_I>(); }
+extern "C" float get_pid_noz_d_value() { return get_pid_noz_value<EEVAR_PID_NOZ_D>(); }
+
+extern "C" void set_pid_noz_p_value(float value) { return set_pid_noz_value<EEVAR_PID_NOZ_P>(value); }
+extern "C" void set_pid_noz_i_value(float value) { return set_pid_noz_value<EEVAR_PID_NOZ_I>(value); }
+extern "C" void set_pid_noz_d_value(float value) { return set_pid_noz_value<EEVAR_PID_NOZ_D>(value); }
+
+
+/*****************************************************************************/
 // AXIS_STEPS_PER_UNIT
 extern "C" float get_steps_per_unit_x() {
     return std::abs(eeprom_startup_vars().body.AXIS_STEPS_PER_UNIT_X);

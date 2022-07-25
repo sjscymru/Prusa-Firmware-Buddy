@@ -23,3 +23,4 @@ const SpinConfigInt SpinCnf::steps_per_unit = SpinConfigInt(MenuVars::steps_per_
 const SpinConfigInt SpinCnf::microstep_exponential = SpinConfigInt(MenuVars::microstep_exponential_range);
 const SpinConfigInt SpinCnf::rms_current = SpinConfigInt(MenuVars::axis_rms_currents_range);
 const SpinConfigInt SpinCnf::two_digits_uint = { { 0, 15, 1 } };
+const SpinConfigFlt SpinCnf::pid_range = SpinConfigFlt(MenuVars::pid_param_range);

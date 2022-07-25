@@ -12,6 +12,33 @@
 #define NOTRAN(x) string_view_utf8::MakeCPUFLASH((const uint8_t *)x)
 
 /*****************************************************************************/
+//MI_PID_NOZ_P
+MI_PID_NOZ_P::MI_PID_NOZ_P()
+    : WiSpinFlt(get_pid_noz_p_value(), SpinCnf::pid_range, NOTRAN(label)) {}
+
+void MI_PID_NOZ_P::Store() {
+    set_pid_noz_p_value(GetVal());
+}
+
+/*****************************************************************************/
+//MI_PID_NOZ_I
+MI_PID_NOZ_I::MI_PID_NOZ_I()
+    : WiSpinFlt(get_pid_noz_i_value(), SpinCnf::pid_range, NOTRAN(label)) {}
+
+void MI_PID_NOZ_I::Store() {
+    set_pid_noz_i_value(GetVal());
+}
+
+/*****************************************************************************/
+//MI_PID_NOZ_D
+MI_PID_NOZ_D::MI_PID_NOZ_D()
+    : WiSpinFlt(get_pid_noz_d_value(), SpinCnf::pid_range, NOTRAN(label)) {}
+
+void MI_PID_NOZ_D::Store() {
+    set_pid_noz_d_value(GetVal());
+}
+
+/*****************************************************************************/
 //MI_Z_AXIS_LEN
 MI_Z_AXIS_LEN::MI_Z_AXIS_LEN()
     : WiSpinInt(get_z_max_pos_mm_rounded(), SpinCnf::axis_z_max_range, NOTRAN(label)) {}
