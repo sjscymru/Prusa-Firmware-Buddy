@@ -18,3 +18,4 @@ using SpinConfig_t = SpinConfigWithUnit<T>;
 #endif
 
 using SpinConfigInt = SpinConfig_t<int>;
+using SpinConfigFlt = SpinConfig_t<float>;

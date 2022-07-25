@@ -19,6 +19,7 @@
 /*****************************************************************************/
 //Screen
 using Screen = ScreenMenu<EHeader::Off, EFooter::On, HelpLines_None, MI_SAVE_AND_RETURN,
+    MI_PID_NOZ_P, MI_PID_NOZ_I, MI_PID_NOZ_D,
     MI_Z_AXIS_LEN, MI_RESET_Z_AXIS_LEN, MI_STEPS_PER_UNIT_E, MI_RESET_STEPS_PER_UNIT, MI_DIRECTION_E, MI_RESET_DIRECTION>;
 class ScreenMenuExperimentalSettings : public Screen {
     static constexpr const char *const save_and_reboot = "Do you want to save changes and reboot the printer?";
@@ -26,10 +27,16 @@ class ScreenMenuExperimentalSettings : public Screen {
     struct values_t {
         values_t(ScreenMenuExperimentalSettings &parent)
             : z_len(parent.Item<MI_Z_AXIS_LEN>().GetVal())
-            , steps_per_unit_e(parent.Item<MI_STEPS_PER_UNIT_E>().GetVal() * ((parent.Item<MI_DIRECTION_E>().GetIndex() == 1) ? -1 : 1)) {}
+            , steps_per_unit_e(parent.Item<MI_STEPS_PER_UNIT_E>().GetVal() * ((parent.Item<MI_DIRECTION_E>().GetIndex() == 1) ? -1 : 1))
+            , pid_p(parent.Item<MI_PID_NOZ_P>().GetVal())
+            , pid_i(parent.Item<MI_PID_NOZ_I>().GetVal())
+            , pid_d(parent.Item<MI_PID_NOZ_D>().GetVal()) {}
 
         int32_t z_len;
         int32_t steps_per_unit_e; //has stored both index and polarity
+        float pid_p;
+        float pid_i;
+        float pid_d;
 
         // this is only safe as long as there are no gaps between variabes
         // all variables are 32bit now, so it is safe
@@ -54,6 +61,9 @@ class ScreenMenuExperimentalSettings : public Screen {
             Item<MI_Z_AXIS_LEN>().Store();
             Item<MI_STEPS_PER_UNIT_E>().Store();
             Item<MI_DIRECTION_E>().Store();
+            Item<MI_PID_NOZ_P>().Store();
+            Item<MI_PID_NOZ_I>().Store();
+            Item<MI_PID_NOZ_D>().Store();
 
             sys_reset();
         case Response::No:

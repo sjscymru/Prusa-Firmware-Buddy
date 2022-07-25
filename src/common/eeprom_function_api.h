@@ -18,6 +18,9 @@ extern "C" {
  * @brief function set to read value from eeprom
  */
 float get_z_max_pos_mm();
+float get_pid_noz_p_value();
+float get_pid_noz_i_value();
+float get_pid_noz_d_value();
 float get_steps_per_unit_x();
 float get_steps_per_unit_y();
 float get_steps_per_unit_z();
@@ -53,6 +56,9 @@ uint16_t get_steps_per_unit_e_rounded();
  * @brief function set to store value to eeprom
  */
 void set_z_max_pos_mm(float max_pos);
+void set_pid_noz_p_value(float value);
+void set_pid_noz_i_value(float value);
+void set_pid_noz_d_value(float value);
 void set_steps_per_unit_x(float steps);
 void set_steps_per_unit_y(float steps);
 void set_steps_per_unit_z(float steps);
