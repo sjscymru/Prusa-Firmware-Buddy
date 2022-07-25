@@ -16,6 +16,7 @@ typedef enum {
     FILAMENT_NONE = 0,
     FILAMENT_PLA,
     FILAMENT_PETG,
+    FILAMENT_PA6_CF,
     FILAMENT_ASA,
     FILAMENT_PC,
     FILAMENT_PVB,
