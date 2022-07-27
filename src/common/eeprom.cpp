@@ -881,14 +881,16 @@ extern "C" void set_z_max_pos_mm(float max_pos) {
 
 #if ENABLED(PIDTEMP)
 
+#define ROUNDF(f, c) (((float)((int32_t)((f) * (c))) / (c)))
+
 template <int ENUM>
 float get_pid_noz_value() {
-    return eeprom_get_flt(ENUM);
+    return ROUNDF(eeprom_get_flt(ENUM), 100U);
 }
 
 template <int ENUM>
 void set_pid_noz_value(float value) {
-    return eeprom_set_flt(ENUM, value);
+    return eeprom_set_flt(ENUM, ROUNDF(value, 100U));
 }
 
 extern "C" float get_pid_noz_p_value() { return get_pid_noz_value<EEVAR_PID_NOZ_P>(); }
