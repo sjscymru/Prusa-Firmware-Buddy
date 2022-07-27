@@ -12,7 +12,7 @@
 // to keep the texts aligned for easier checking of their alignment on the LCD
 static constexpr const char *pla_str =    "PLA      215/ 60";
 static constexpr const char *pet_g_str =  "PETG     230/ 85";
-static constexpr const char *pa6_cf_str = "PA6-CF   290/ 35";
+static constexpr const char *pa6_cf_str = "PA6-CF   275/ 40";
 static constexpr const char *asa_str =    "ASA      260/100";
 static constexpr const char *pc_str =     "PC       275/100";
 static constexpr const char *pvb_str =    "PVB      215/ 75";
@@ -26,7 +26,7 @@ const filament_t filaments[FILAMENTS_END] = {
     { "---", N_("Cooldown"), 0, 0 },
     { "PLA", pla_str, 215, 60 },
     { "PETG", pet_g_str, 230, 85 },
-    { "PA6-CF", pa6_cf_str, 290, 35 },
+    { "PA6-CF", pa6_cf_str, 275, 40 },
     { "ASA", asa_str, 260, 100 },
     { "PC", pc_str, 275, 100 },
     { "PVB", pvb_str, 215, 75 },
