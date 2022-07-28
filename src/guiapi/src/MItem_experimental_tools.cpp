@@ -11,10 +11,14 @@
 
 #define NOTRAN(x) string_view_utf8::MakeCPUFLASH((const uint8_t *)x)
 
+static const char* pid_fmt = "% .2f";
+
 /*****************************************************************************/
 //MI_PID_NOZ_P
 MI_PID_NOZ_P::MI_PID_NOZ_P()
-    : WiSpinFlt(get_pid_noz_p_value(), SpinCnf::pid_range, NOTRAN(label)) {}
+    : WiSpinFlt(get_pid_noz_p_value(), SpinCnf::pid_range, NOTRAN(label)) {
+        setFormatOverride(pid_fmt);
+    }
 
 void MI_PID_NOZ_P::Store() {
     set_pid_noz_p_value(GetVal());
@@ -23,7 +27,9 @@ void MI_PID_NOZ_P::Store() {
 /*****************************************************************************/
 //MI_PID_NOZ_I
 MI_PID_NOZ_I::MI_PID_NOZ_I()
-    : WiSpinFlt(get_pid_noz_i_value(), SpinCnf::pid_range, NOTRAN(label)) {}
+    : WiSpinFlt(get_pid_noz_i_value(), SpinCnf::pid_range, NOTRAN(label)) {
+       setFormatOverride(pid_fmt);
+    }
 
 void MI_PID_NOZ_I::Store() {
     set_pid_noz_i_value(GetVal());
@@ -32,7 +38,9 @@ void MI_PID_NOZ_I::Store() {
 /*****************************************************************************/
 //MI_PID_NOZ_D
 MI_PID_NOZ_D::MI_PID_NOZ_D()
-    : WiSpinFlt(get_pid_noz_d_value(), SpinCnf::pid_range, NOTRAN(label)) {}
+    : WiSpinFlt(get_pid_noz_d_value(), SpinCnf::pid_range, NOTRAN(label)) {
+        setFormatOverride(pid_fmt);
+    }
 
 void MI_PID_NOZ_D::Store() {
     set_pid_noz_d_value(GetVal());

@@ -18,7 +18,7 @@ enum class ClickCommand : intptr_t { Return,
     Reset_currents };
 
 class MI_PID_NOZ_P : public WiSpinFlt {
-    constexpr static const char* const label = "PID P";
+    constexpr static const char* const label = "Noz PID P";
 
 public:
     MI_PID_NOZ_P();
@@ -26,7 +26,7 @@ public:
 };
 
 class MI_PID_NOZ_I : public WiSpinFlt {
-    constexpr static const char* const label = "PID I";
+    constexpr static const char* const label = "Noz PID I";
 
 public:
     MI_PID_NOZ_I();
@@ -34,7 +34,7 @@ public:
 };
 
 class MI_PID_NOZ_D : public WiSpinFlt {
-    constexpr static const char* const label = "PID D";
+    constexpr static const char* const label = "Noz PID D";
 
 public:
     MI_PID_NOZ_D();

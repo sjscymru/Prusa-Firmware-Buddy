@@ -52,8 +52,12 @@ public: //todo private
     using Config = SpinConfig_t<T>;
     const Config &config;
 
+    void setFormatOverride(const char* fmt);
+    const char* getFormat();    
+
 protected:
     void printSpinToBuffer();
+    char* prt_format_override = nullptr;
 
 public:
     WI_SPIN_t(T val, const Config &cnf, string_view_utf8 label, uint16_t id_icon = 0, is_enabled_t enabled = is_enabled_t::yes, is_hidden_t hidden = is_hidden_t::no);
@@ -89,12 +93,22 @@ invalidate_t WI_SPIN_t<T>::Change(int dif) {
 
 template <class T>
 void WI_SPIN_t<T>::printSpinToBuffer() {
-    snprintf(spin_text_buff.data(), spin_text_buff.size(), config.prt_format, (T)(value));
+    snprintf(spin_text_buff.data(), spin_text_buff.size(), getFormat(), (T)(value));
+}
+
+template <class T>
+inline void WI_SPIN_t<T>::setFormatOverride(const char* fmt) {
+    prt_format_override = const_cast<char*>(fmt);
+}
+
+template <class T>
+const char* WI_SPIN_t<T>::getFormat() {
+    return prt_format_override != nullptr ? const_cast<const char*>(prt_format_override) : config.prt_format;
 }
 
 template <>
 inline void WI_SPIN_t<float>::printSpinToBuffer() {
-    snprintf(spin_text_buff.data(), spin_text_buff.size(), config.prt_format, static_cast<double>(value.flt));
+    snprintf(spin_text_buff.data(), spin_text_buff.size(), getFormat(), static_cast<float>(value.flt));
 }
 
 using WiSpinInt = WI_SPIN_t<int>;

@@ -12,7 +12,7 @@
 // to keep the texts aligned for easier checking of their alignment on the LCD
 static constexpr const char *pla_str =    "PLA      215/ 60";
 static constexpr const char *pet_g_str =  "PETG     230/ 85";
-static constexpr const char *pa6_cf_str = "PA6-CF   280/ 35";
+static constexpr const char *pa6_cf_str = "PA6-CF   280/ 40";
 static constexpr const char *asa_str =    "ASA      260/ 95";
 static constexpr const char *pc_str =     "PC       275/ 95";
 static constexpr const char *pvb_str =    "PVB      215/ 75";
