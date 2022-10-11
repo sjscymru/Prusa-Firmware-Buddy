@@ -47,6 +47,7 @@ protected:
 
 #define ALL_FILAMENTS MI_Filament<filament_t::PLA>,  \
                       MI_Filament<filament_t::PETG>, \
+                      MI_Filament<filament_t::PA6_CF>, \
                       MI_Filament<filament_t::ASA>,  \
                       MI_Filament<filament_t::PC>,   \
                       MI_Filament<filament_t::PVB>,  \
