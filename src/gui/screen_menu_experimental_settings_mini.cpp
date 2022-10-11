@@ -18,7 +18,7 @@
 
 /*****************************************************************************/
 //Screen
-using Screen = ScreenMenu<EHeader::Off, EFooter::On, HelpLines_None, MI_SAVE_AND_RETURN,
+using Screen = ScreenMenu<EFooter::On, MI_SAVE_AND_RETURN,
     MI_PID_NOZ_P, MI_PID_NOZ_I, MI_PID_NOZ_D,
     MI_Z_AXIS_LEN, MI_RESET_Z_AXIS_LEN, MI_STEPS_PER_UNIT_E, MI_RESET_STEPS_PER_UNIT, MI_DIRECTION_E, MI_RESET_DIRECTION>;
 class ScreenMenuExperimentalSettings : public Screen {

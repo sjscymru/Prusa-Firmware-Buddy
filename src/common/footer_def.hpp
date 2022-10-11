@@ -22,6 +22,14 @@
 namespace footer {
 static constexpr uint8_t DefaultCenterNAndFewer = FOOTER_ITEMS_PER_LINE__ - 1;
 
+/**
+ * @brief enum enlisting all footer items
+ * add items to the end of enum or it will break upgrades
+ * if item is added other modifications must be made:
+ * - IMiFooter          in src/gui/screen_menu_footer_settings.cpp
+ * - ItemUnion          in src/gui/footer/footer_item_union.hpp
+ * - FooterLine::Create in src/gui/footer/footer_line.cpp
+ */
 enum class items : uint8_t { // stored in eeprom, must be small
     ItemNozzle,
     ItemBed,
@@ -33,6 +41,13 @@ enum class items : uint8_t { // stored in eeprom, must be small
 #if defined(FOOTER_HAS_SHEETS)
     ItemSheets,
 #endif
+    ItemFSensor,
+    ItemAxisX,
+    ItemAxisY,
+    ItemAxisZ,
+    ItemZHeight,
+    ItemPrintFan,
+    ItemHeatbreakFan,
     count_
 };
 
@@ -43,13 +58,7 @@ using record = std::array<items, FOOTER_ITEMS_PER_LINE__>;
  */
 #if FOOTER_LINES__ == 2 && FOOTER_ITEMS_PER_LINE__ == 3
 static constexpr record DefaultItems = { { items::ItemSpeed,
-    #if defined(FOOTER_HAS_LIVE_Z)
-    items::ItemLiveZ,
-    #elif defined(FOOTER_HAS_SHEETS)
-    items::ItemSheets,
-    #else
-    items::count_,
-    #endif
+    items::ItemZHeight,
     items::ItemFilament } };
 #endif // FOOTER_LINES__ == 2 && FOOTER_ITEMS_PER_LINE__ == 3
 
